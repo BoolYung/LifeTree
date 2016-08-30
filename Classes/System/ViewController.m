@@ -38,16 +38,16 @@
     girdView.delegate = self;
     
     
-    NSInteger bottomH = 100;
+    NSInteger bottomH = 150;
     UIImageView *bottomView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"trunkRoot"]];
     bottomView.backgroundColor = [UIColor clearColor];
-    bottomView.frame = CGRectMake(0, girdHeight-bottomH, SCREENWIDTH, bottomH);
+    bottomView.frame = CGRectMake(-30, girdHeight-bottomH, SCREENWIDTH, bottomH);
     [girdView addSubview:bottomView];
     
     NSInteger trunkH = 700;
     UIImageView *trunkView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"trunk"]];
     trunkView.backgroundColor = [UIColor clearColor];
-    trunkView.frame = CGRectMake(0, girdHeight-trunkH-bottomH, SCREENWIDTH, trunkH);
+    trunkView.frame = CGRectMake(20, girdHeight-trunkH-bottomH, SCREENWIDTH-30, trunkH);
     [girdView addSubview:trunkView];
     
     
