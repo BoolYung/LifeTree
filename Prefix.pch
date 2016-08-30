@@ -1,0 +1,31 @@
+//
+//  Prefix.pch
+//  LifeTree
+//
+//  Created by yang on 16/8/26.
+//  Copyright © 2016年 danertu.inc. All rights reserved.
+//
+
+#ifndef Prefix_pch
+#define Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* Prefix_pch */
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "AFAppClient.h"
+#endif
+
+#define iOS7   ([UIDevice currentDevice].systemVersion.floatValue >= 6.9)
+#define iOS8   ([UIDevice currentDevice].systemVersion.floatValue >= 7.9)
+#define iOS9   ([UIDevice currentDevice].systemVersion.floatValue >= 8.9)
+
+#define STATUSBAR_HEIGHT (iOS7 ? 20 : 0)  //状态栏高度
+#define SCREENWIDTH ([UIScreen mainScreen].bounds.size.width)
+#define SCREENHEIGH ([UIScreen mainScreen].bounds.size.height)
+
+//接口地址
+#define APIURL @"http://115.28.55.222:8085/RequestApi.aspx"
