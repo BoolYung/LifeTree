@@ -8,7 +8,7 @@
 
 #import "MainViewController.h"
 //#import "FMDBManager.h"
-
+#import "LockController.h"
 
 #define SNOW_IMAGENAME         @"snow"
 #define IMAGE_X                arc4random()%(int)[[UIScreen mainScreen] bounds].size.width
@@ -79,19 +79,26 @@
     }
     
     
-    UIButton *bt = [[UIButton alloc] initWithFrame:CGRectMake(50, 100, 50, 20)];
+    UIButton *bt = [[UIButton alloc] initWithFrame:CGRectMake(50, 100, 150, 20)];
     bt.backgroundColor = [UIColor redColor];
     [bt.layer setMasksToBounds:YES];
     [bt.layer setCornerRadius:2];
-    [bt setTitle:@"点" forState:UIControlStateNormal];
+    [bt setTitle:@"点我出现手势解锁页面" forState:UIControlStateNormal];
     [bt addTarget:self action:@selector(clickAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:bt];
     
-    [self initItemView];
+    UIButton *setBt = [[UIButton alloc] initWithFrame:CGRectMake(SCREENWIDTH-80, SCREENHEIGH-80, 50, 50)];
+//    setBt.backgroundColor = [UIColor redColor];
+//    [bt.layer setMasksToBounds:YES];
+//    [bt.layer setCornerRadius:2];
+    [setBt setBackgroundImage:[UIImage imageNamed:@"set_1.png"] forState:UIControlStateNormal];
+    [setBt addTarget:self action:@selector(setBtClickAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:setBt];
+    
 }
 
-- (void)initItemView{
-    
+- (void)setBtClickAction{
+    NSLog(@"tag");
 }
 
 - (void)panelClickAction:(id)sender{
@@ -100,7 +107,9 @@
 }
 
 - (void)clickAction{
-    NSLog(@"111111");
+    
+    LockController *lockController = [[LockController alloc] init];
+    [self presentViewController:lockController animated:YES completion:nil];
 }
 
 #pragma mark --UIScrollViewDelegate
